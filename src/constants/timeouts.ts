@@ -1,0 +1,5 @@
+export const TIMEOUTS = {
+    SHORT_WAIT: 10_000,
+    MEDIUM_WAIT: 30_000,
+    LONG_WAIT: 60_000
+}
