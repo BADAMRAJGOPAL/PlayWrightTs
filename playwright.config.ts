@@ -6,7 +6,7 @@ export default defineConfig({
   retries: 0,
 
   use: {
-    headless: true,
+    headless: false,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'retain-on-failure', // good for Allure
@@ -17,7 +17,9 @@ export default defineConfig({
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
+        
       },
+      
     },
   ],
 

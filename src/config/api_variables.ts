@@ -1,2 +1,2 @@
-export const BASE_URL='https://rahulshettyacademy.com/client/#/auth/login';
-export const API_BASE_URL='https://rahulshettyacademy.com/client';
+export const BASE_URL='https://automationexercise.com';
+export const API_BASE_URL='https://automationexercise.com/api';

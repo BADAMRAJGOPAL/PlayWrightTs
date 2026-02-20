@@ -1,24 +1,26 @@
 import { type Page, type Locator, expect } from '@playwright/test';
-import { MESSAGES } from '../constants/messages';
+import { basePage } from 'src/core/basePage';
 
-export default class HomePage {
-    readonly page: Page;
-    readonly signOutButton: Locator;
-    readonly toastMessage: Locator;
+export default class HomePage extends basePage {
 
 
     constructor(page: Page) {
-        this.page = page;
-        this.signOutButton = page.getByRole('button', { name: " Sign Out " })
-        this.toastMessage = page.locator('//div[@id="toast-container"]');
+        super(page)
     }
 
-    async SignOut() {
-        await this.signOutButton.click();
+    async deleteAccount() {
+        await this.selectTab('Delete Account');
     }
 
-    async ValidateLogOutSuccessful() {
-        await expect(this.toastMessage).toHaveText(MESSAGES.LOGOUT_SUCCESS)
-        await expect(this.toastMessage).toBeHidden();
+    async validateUserName(name:string){
+        expect(await this.page.locator("//i[contains(@class,'user')]")).toHaveText(name);
+    }
+
+    async validateAccountDeletedDisplayed(){
+        this.verifyTextVisible("Account Deleted!")
+    }
+
+    async continue(){
+        await this.clickButton('Continue');
     }
 }
