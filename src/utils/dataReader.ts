@@ -17,4 +17,3 @@ export function readCSV(filename: string) {
 
   return records;
 }
-
