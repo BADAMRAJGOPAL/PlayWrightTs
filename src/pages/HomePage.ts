@@ -1,7 +1,7 @@
 import { type Page, type Locator, expect } from '@playwright/test';
 import { MESSAGES } from '../constants/messages';
 
-export class HomePage {
+export default class HomePage {
     readonly page: Page;
     readonly signOutButton: Locator;
     readonly toastMessage: Locator;

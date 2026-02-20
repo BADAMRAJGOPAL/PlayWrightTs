@@ -1,8 +1,7 @@
 import { type Page, type Locator, expect } from '@playwright/test';
 import { MESSAGES } from '../constants/messages';
-import { HomePage } from './HomePage';
 
-export class LoginPage {
+export default class LoginPage {
     readonly page: Page;
     readonly loginButton: Locator;
     readonly emailInput: Locator;
@@ -19,15 +18,18 @@ export class LoginPage {
         this.toastMessage = page.locator('//div[@id="toast-container"]');
     }
 
-    async Login(username: string, password: string) {
+    async login(username: string, password: string) {
         await this.emailInput.fill(username);
         await this.passwordInput.fill(password);
         await this.loginButton.click();
     }
-    async ValidateLoginSuccessful() {
+    async validateLoginSuccessful() {
         await expect(this.toastMessage).toHaveText(MESSAGES.LOGIN_SUCCESS);
         await expect(this.toastMessage).toBeHidden();
         await expect(this.dashboardButton).toBeVisible();
-        return new HomePage(this.page);
+    }
+    async validateLoginEmailErrorMessage(expectedErrorMessage:string){
+        const errorMessage=await this.page.locator('//label[text()="Email"]/following-sibling::div[@class="invalid-feedback"]');
+        await expect(errorMessage).toHaveText(expectedErrorMessage)
     }
 }
