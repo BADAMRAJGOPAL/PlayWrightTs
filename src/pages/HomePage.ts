@@ -13,7 +13,7 @@ export default class HomePage extends basePage {
     }
 
     async validateUserName(name:string){
-        expect(await this.page.locator("//i[contains(@class,'user')]")).toHaveText(name);
+        await expect(this.page.getByText(`Logged in as ${name}`)).toBeVisible();
     }
 
     async validateAccountDeletedDisplayed(){
@@ -21,6 +21,6 @@ export default class HomePage extends basePage {
     }
 
     async continue(){
-        await this.clickButton('Continue');
+        await this.page.getByRole('link',{name:'Continue'}).click();
     }
 }

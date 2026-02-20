@@ -55,6 +55,6 @@ export default class SignupPage extends basePage {
 
     }
     async continue(){
-        await this.clickButton('Continue');
+        await this.page.getByRole('link',{name:'Continue'}).click();
     }
 }
