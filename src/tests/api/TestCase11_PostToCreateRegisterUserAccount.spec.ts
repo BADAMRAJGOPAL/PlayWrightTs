@@ -1,6 +1,6 @@
 import { test, expect } from '../../fixtures/baseFixtures'
-import { generateCreateAccountPayload } from '../../api/commonApiUtils.api'
-import {getJsonResponse,assertResponseMatches} from '../../api/commonApiUtils.api'
+import { generateCreateAccountPayload } from '../../api/common'
+import {getJsonResponse,assertResponseMatches} from '../../api/common'
 
 
 test.describe('API Test', () => {

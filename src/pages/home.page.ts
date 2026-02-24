@@ -1,5 +1,5 @@
 import { type Page, type Locator, expect } from '@playwright/test';
-import { basePage } from 'src/core/basePage';
+import { basePage } from 'src/pages/core/basePage';
 
 export default class HomePage extends basePage {
     private readonly continueLink:Locator;

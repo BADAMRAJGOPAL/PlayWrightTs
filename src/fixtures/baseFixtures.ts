@@ -1,8 +1,8 @@
 import {test as base} from '@playwright/test';
-import LoginPage  from 'src/pages/LoginPage.page';
-import SignupPage  from '../pages/SignupPage.page';
-import HomePage from '../pages/HomePage.page'
-import AccountApi from '../api/account.api'
+import LoginPage  from 'src/pages/login.page';
+import SignupPage  from '../pages/signup.page';
+import HomePage from '../pages/home.page'
+import AccountApi from '../api/account.services'
 
 type MyFixtures={
     loginPage:LoginPage;

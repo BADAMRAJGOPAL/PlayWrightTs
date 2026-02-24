@@ -1,6 +1,6 @@
 import { type Page, type Locator, expect } from '@playwright/test';
-import { basePage } from 'src/core/basePage';
-import { step } from '../core/stepWrapper';
+import { basePage } from 'src/pages/core/basePage';
+import { step } from '../utils/stepWrapper';
 import { BASE_URL } from 'src/config/api_variables';
 
 export default class LoginPage extends basePage {

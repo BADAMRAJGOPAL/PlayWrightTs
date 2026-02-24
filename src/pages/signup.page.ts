@@ -1,5 +1,5 @@
-import { basePage } from 'src/core/basePage';
-import { step } from 'src/core/stepWrapper';
+import { basePage } from 'src/pages/core/basePage';
+import { step } from 'src/utils/stepWrapper';
 import { Page, Locator } from '@playwright/test';
 import { SignupData } from 'src/testData/tsTestData/signupData';
 

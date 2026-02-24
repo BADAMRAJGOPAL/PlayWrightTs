@@ -1,7 +1,6 @@
-import { test, Page } from '@playwright/test';
+import { test} from '@playwright/test';
 
 export async function step<T>(
-  page: Page,
   stepName: string,
   action: () => Promise<T>
 ): Promise<T> {
@@ -13,5 +12,4 @@ export async function step<T>(
       throw error;
     }
   });
-
 }

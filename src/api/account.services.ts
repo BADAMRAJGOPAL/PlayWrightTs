@@ -1,6 +1,6 @@
 import { APIRequestContext} from "@playwright/test";
 import { API_BASE_URL } from "src/config/api_variables";
-import { getJsonResponse, assertResponseMatches } from './commonApiUtils.api'
+import { getJsonResponse, assertResponseMatches } from './common'
 
 
 export default class AccountApi{
