@@ -1,7 +1,7 @@
 import { basePage } from 'src/pages/core/basePage';
 import { step } from 'src/utils/stepWrapper';
 import { Page, Locator } from '@playwright/test';
-import { SignupData } from 'src/testData/tsTestData/signupData';
+import { signupModel } from 'src/data/models/signup.model';
 
 export default class SignupPage extends basePage {
 
@@ -22,7 +22,7 @@ export default class SignupPage extends basePage {
     }
 
     async verifyEnterAccountInformationVisible() {
-        await step(this.page, `Verify 'Enter Account Information' is visible`, async () => {
+        await step(`Verify 'Enter Account Information' is visible`, async () => {
             await this.verifyTextVisible('Enter Account Information');
         });
         return this;
@@ -34,12 +34,12 @@ export default class SignupPage extends basePage {
         await this.yearsDropdown.selectOption(year);
     }
 
-    async enterSignupAccountInformation(data: SignupData) {
-        await step(this.page, `Enter Signup Account Information`, async () => {
+    async enterSignupAccountInformation(data: signupModel) {
+        await step(`Enter Signup Account Information`, async () => {
 
             await this.checkRadio(data.title);
             await this.inputText('Password *', data.password);
-            await this.enterDOB(data.day, data.month, data.year);
+            // await this.enterDOB(data.day, data.month, data.year);
             if (data.newsletter) {
                 await this.selectCheckBox('Sign up for our newsletter!');
             }
@@ -70,7 +70,7 @@ export default class SignupPage extends basePage {
     }
 
     async validateAccountCreatedDisplayed() {
-        await step(this.page, `Verify account created successfully`, async () => {
+        await step(`Verify account created successfully`, async () => {
             await this.verifyTextVisible('Account Created!');
         });
     }

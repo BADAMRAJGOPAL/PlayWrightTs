@@ -28,7 +28,7 @@ export default class LoginPage extends basePage {
     }
 
     async enterSignUpDetail(name:string,email:string){
-        await step(this.page,'Enter Initial Sign Up Details(Name, Email)',async()=>{
+        await step('Enter Initial Sign Up Details(Name, Email)',async()=>{
         await this.signupName.fill(name);
         await this.signupEmail.fill(email);
         await this.signupButton.click();
@@ -36,13 +36,13 @@ export default class LoginPage extends basePage {
     }
 
     async verifyNewUserSignupVisible() {
-        await step(this.page, `Verify 'New User Signup!' is visible`, async () => {
+        await step(`Verify 'New User Signup!' is visible`, async () => {
             await this.verifyTextVisible('New User Signup!');
         });
     }
 
     async loginAs(username: string, password: string) {
-        await step(this.page, `Login as ${username}`, async () => {
+        await step(`Login as ${username}`, async () => {
             await this.enterLoginCreds(username, password);
             await expect(this.page.locator('//a[@href="/logout"]')).toBeVisible();
         });
