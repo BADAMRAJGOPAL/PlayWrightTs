@@ -1,8 +1,8 @@
 import { getSignupData } from 'src/data/factories/signup.factories';
-import { test, expect } from '../../fixtures/baseFixtures'
+import { test } from '../../fixtures/baseFixtures'
 
 
-test.describe.serial('Login Testcases', () => {
+test.describe.serial('@web Login Testcases', () => {
     let payLoad : any;
 
     test.beforeAll('create Account', async ({ accountApi }) => {
@@ -10,11 +10,11 @@ test.describe.serial('Login Testcases', () => {
         await accountApi.createAccount(payLoad);
     })
 
-    test('Test Case 4: Logout User', async ({}) => {
+    test('@web Test Case 4: Logout User', async ({}) => {
         console.log('Logout')
     })
 
-    test('Test Case 2: Login User with correct email and password', async ({ loginPage, homePage}) => {
+    test('@web Test Case 2: Login User with correct email and password', async ({ loginPage, homePage}) => {
         await loginPage.open();
         await loginPage.selectTab(" Signup / Login");
         await loginPage.loginAs(payLoad.email, payLoad.password);

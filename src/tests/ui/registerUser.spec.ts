@@ -1,12 +1,12 @@
 import { test } from '../../fixtures/baseFixtures'
 import { getSignupData } from 'src/data/factories/signup.factories';
 
-test.describe('E2E User Register', async () => {
+test.describe('@E2E E2E User Register', async () => {
     test.beforeEach('', async ({ loginPage }) => {
         await loginPage.open();
     })
 
-    test('@web Test Case 1: Register User', async ({ loginPage, signupPage, homePage }) => {
+    test('@web @E2E Test Case 1: Register User', async ({ loginPage, signupPage, homePage }) => {
         const signupData = getSignupData();
         await homePage.validateHomePageDisplayed();
         await loginPage.selectTab(" Signup / Login");

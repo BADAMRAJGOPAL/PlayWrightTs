@@ -1,25 +1,17 @@
 import { basePage } from 'src/pages/core/basePage';
 import { step } from 'src/utils/stepWrapper';
-import { Page, Locator } from '@playwright/test';
+import { Page} from '@playwright/test';
 import { signupModel } from 'src/data/models/signup.model';
 
 export default class SignupPage extends basePage {
-
-    private readonly daysDropdown: Locator;
-    private readonly monthsDropdown: Locator;
-    private readonly yearsDropdown: Locator;
-    private readonly zipcodeInput: Locator;
-    private readonly continueLink: Locator;
-
     constructor(page: Page) {
         super(page);
-
-        this.daysDropdown = page.locator('#days');
-        this.monthsDropdown = page.locator('#months');
-        this.yearsDropdown = page.locator('#years');
-        this.zipcodeInput = page.locator('#zipcode');
-        this.continueLink = page.getByRole('link', { name: 'Continue' });
     }
+    private readonly daysDropdown = this.page.locator('#days');;
+    private readonly monthsDropdown = this.page.locator('#months');;
+    private readonly yearsDropdown = this.page.locator('#years');;
+    private readonly zipcodeInput = this.page.locator('#zipcode');;
+    private readonly continueLink = this.page.getByRole('link', { name: 'Continue' });;
 
     async verifyEnterAccountInformationVisible() {
         await step(`Verify 'Enter Account Information' is visible`, async () => {
