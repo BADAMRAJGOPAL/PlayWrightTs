@@ -15,26 +15,21 @@ export default class HomePage extends basePage {
 
     async deleteAccount() {
         await this.selectTab('Delete Account');
-        return this;
     }
 
     async validateUserName(name:string){
         await expect(this.page.getByText(`Logged in as ${name}`)).toBeVisible();
-        return this;
     }
 
     async validateAccountDeletedDisplayed() {
         await expect(this.accountDeletedText).toBeVisible();
-        return this;
     }
 
     async clickContinue() {
         await this.continueLink.click();
-        return this;
     }
 
     async validateHomePageDisplayed(){
         await expect(this.featuredItems).toBeVisible();
-        return this;
     }
 }

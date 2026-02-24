@@ -25,22 +25,20 @@ export default class LoginPage extends basePage {
         await this.loginEmail.fill(username);
         await this.loginPassword.fill(password);
         await this.loginButton.click();
-        return this;
     }
+
     async enterSignUpDetail(name:string,email:string){
         await step(this.page,'Enter Initial Sign Up Details(Name, Email)',async()=>{
         await this.signupName.fill(name);
         await this.signupEmail.fill(email);
         await this.signupButton.click();
         });
-        return this;
     }
 
     async verifyNewUserSignupVisible() {
         await step(this.page, `Verify 'New User Signup!' is visible`, async () => {
             await this.verifyTextVisible('New User Signup!');
         });
-        return this;
     }
 
     async loginAs(username: string, password: string) {
@@ -48,17 +46,14 @@ export default class LoginPage extends basePage {
             await this.enterLoginCreds(username, password);
             await expect(this.page.locator('//a[@href="/logout"]')).toBeVisible();
         });
-        return this;
     }
 
     async validateLoginEmailErrorMessage(expectedErrorMessage: string) {
         const errorMessage = await this.page.locator('//label[text()="Email"]/following-sibling::div[@class="invalid-feedback"]');
         await expect(errorMessage).toHaveText(expectedErrorMessage);
-        return this;
     }
 
     async open(){
         await this.page.goto(BASE_URL)
-        return this;
     }
 }

@@ -32,7 +32,6 @@ export default class SignupPage extends basePage {
         await this.daysDropdown.selectOption(day);
         await this.monthsDropdown.selectOption(month);
         await this.yearsDropdown.selectOption(year);
-        return this;
     }
 
     async enterSignupAccountInformation(data: SignupData) {
@@ -40,7 +39,7 @@ export default class SignupPage extends basePage {
 
             await this.checkRadio(data.title);
             await this.inputText('Password *', data.password);
-            // await this.enterDOB(data.day, data.month, data.year);
+            await this.enterDOB(data.day, data.month, data.year);
             if (data.newsletter) {
                 await this.selectCheckBox('Sign up for our newsletter!');
             }
@@ -68,19 +67,15 @@ export default class SignupPage extends basePage {
             await this.inputText('Mobile Number *', data.mobileNumber);
             await this.clickButton('Create Account');
         });
-
-        return this;
     }
 
     async validateAccountCreatedDisplayed() {
         await step(this.page, `Verify account created successfully`, async () => {
             await this.verifyTextVisible('Account Created!');
         });
-        return this;
     }
 
     async clickContinue() {
         await this.continueLink.click();
-        return this;
     }
 }

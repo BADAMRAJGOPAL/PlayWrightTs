@@ -1,8 +1,9 @@
-import { generateSignupData } from 'src/testData/tsTestData/signupData';
 import {test, expect} from '../../fixtures/baseFixtures'
+import { getSignupData } from 'src/data/factories/signup.factories';
+
 
 test('@web Test Case 1: Register User',async({loginPage,signupPage,homePage,page})=>{
-    const signupData=generateSignupData();
+    const signupData=getSignupData();
     await loginPage.open();
     await homePage.validateHomePageDisplayed();
     await loginPage.selectTab(" Signup / Login");
