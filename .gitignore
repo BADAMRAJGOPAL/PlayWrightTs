@@ -41,3 +41,8 @@ coverage/
 # Temporary files
 *.tmp
 *.swp
+
+# Allure reports
+reports/allure-results/
+allure-results/
+allure-report/
